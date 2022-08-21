@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Container, Text, VStack, Image, Box, Wrap, WrapItem, Button, IconButton, useMediaQuery, useDisclosure, ScaleFade } from '@chakra-ui/react';
 import * as Ikon from 'react-icons/fa';
-import imageDefault from '../../images/default.jpg';
 import { useParams, Link as Links } from 'react-router-dom';
 import MenungguDetail from '../../components/utils/MenungguDetail';
 import Header from '../../components/Header';
@@ -12,6 +11,7 @@ const DetailUndangan = () => {
   const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
   const [isLoading, setIsLoading] = useState(true);
   let [products, setProducts] = useState([]);
+  const [cover, setCover] = useState('');
   let { id } = useParams();
   useEffect(() => {
     axios.get(`https://namira-api.vercel.app/api/wi/${id}`, {
@@ -22,6 +22,8 @@ const DetailUndangan = () => {
       setProducts(result.data.data);
       onToggle();
       setIsLoading(false);
+    }).catch((err) => {
+      console.log(err.message);
     });
     // eslint-disable-next-line
   }, []);
@@ -31,8 +33,21 @@ const DetailUndangan = () => {
       <Wrap marginTop='50px' marginBottom='50px' justify='center' spacing='20px' key={index}>
         <WrapItem>
           <ScaleFade initialScale={0.9} in={isOpen}>
-            <Box w={isNotSmallerScreen ? '500px' : '350px'} borderWidth='1px' boxShadow='sm' borderRadius='15px' p={5}>
-              <Image src={product.photo === '' ? imageDefault : product.photo} borderRadius='15px' />
+            <Box w={isNotSmallerScreen ? '550px' : '350px'} borderWidth='1px' boxShadow='sm' borderRadius='15px' p={5}>
+              <Image src={cover === '' ? product.photo[0] : cover} borderRadius='15px' />
+            </Box>
+            <Box w={isNotSmallerScreen ? '550px' : '350px'}>
+              <Wrap marginTop={2} justify='center'>
+                {product.photo.map((pho, index) => {
+                  return (
+                    <WrapItem key={index}>
+                      <Box w={isNotSmallerScreen ? '120px' : '120px'} onClick={() => setCover(pho)} borderWidth='1px' boxShadow='sm' backgroundColor={pho === cover ? '#EDF2F7' : ''} borderRadius='15px' p={1}>
+                        <Image src={pho} borderRadius='10px' />
+                      </Box>
+                    </WrapItem>
+                  );
+                })}
+              </Wrap>
             </Box>
           </ScaleFade>
         </WrapItem>

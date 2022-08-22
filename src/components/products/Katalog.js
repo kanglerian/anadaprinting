@@ -56,7 +56,7 @@ const Katalog = (props) => {
     return (
       <WrapItem key={index}>
         <ScaleFade initialScale={0.5} in={isOpen}>
-          <Box w='350px' borderWidth='1px' boxShadow='sm' borderRadius='15px' p={5}>
+          <Box w='350px' borderWidth='1px' boxShadow='sm' borderRadius='15px' p={4}>
             <Tooltip label={product.name} hasArrow placement='top'>
               <Link to={`/${halaman}/${product.id}`}>
                 <Image src={product.photo === '' ? imageDefault : product.photo} borderRadius='15px' />

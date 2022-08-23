@@ -91,10 +91,10 @@ const Katalog = (props) => {
         <Spacer />
         <WrapItem>
           <ButtonGroup>
-            <Link to='/souvenir'>
+            <Link to='/'>
               <Button size='sm'>Souvenir<Badge bg='red.500' color='white' marginLeft='5px'>baru</Badge></Button>
             </Link>
-            <Link to='/'>
+            <Link to='/undangan'>
               <Button size='sm' disabled>Undangan</Button>
             </Link>
             <Link to='/merchandise'>

@@ -11,11 +11,11 @@ const App = () => {
   return(
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Undangan/>} />
+        <Route path='/undangan' element={<Undangan/>} />
         <Route path='/undangan/:id' element={<DetailUndangan/>} />
         <Route path='/merchandise' element={<Merchandise/>} />
         <Route path='/merchandise/:id' element={<DetailMerchandise/>} />
-        <Route path='/souvenir' element={<Souvenir/>} />
+        <Route path='/' element={<Souvenir/>} />
         <Route path='/souvenir/:id' element={<DetailSouvenir/>} />
       </Routes>
     </BrowserRouter>

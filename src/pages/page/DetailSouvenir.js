@@ -34,7 +34,7 @@ const DetailSouvenir = () => {
         <WrapItem>
           <ScaleFade initialScale={0.9} in={isOpen}>
             <Box w={isNotSmallerScreen ? '550px' : '360px'} borderWidth='1px' boxShadow='sm' borderRadius='15px' p={3}>
-              <Image src={'https://anada-storage.vercel.app/assets/souvenir/' + product.photo[0]} borderRadius='15px' />
+              <Image src={cover === '' ? 'https://anada-storage.vercel.app/assets/souvenir/' + product.photo[0] : 'https://anada-storage.vercel.app/assets/souvenir/' + cover} borderRadius='15px' />
             </Box>
             <Box w={isNotSmallerScreen ? '550px' : '350px'}>
               <Wrap marginTop={2} justify='center'>

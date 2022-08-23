@@ -38,7 +38,6 @@ const DetailSouvenir = () => {
             </Box>
             <Box w={isNotSmallerScreen ? '550px' : '350px'}>
               <Wrap marginTop={2} justify='center'>
-                {console.log(product.photo.length > 1)}
                 {product.photo.length > 1 &&
                   product.photo.map((pho, index) => {
                     return (

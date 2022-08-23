@@ -64,7 +64,6 @@ const Katalog = (props) => {
           </Tooltip>
           <Box p={4} paddingBottom='15px'>
             <Text textOverflow='ellipsis' overflow='hidden' whiteSpace='nowrap' fontSize='12px' color={isDark ? 'white' : 'gray.700'}>{product.name}</Text>
-            {console.log(product.name.length)}
             <Text marginTop='5px' fontSize='16px' color={isDark ? 'white' : 'gray.700'} fontWeight='bold'>
                 {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumSignificantDigits: 4 }).format(product.price)}</Text>
           </Box>

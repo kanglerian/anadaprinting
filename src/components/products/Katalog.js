@@ -2,7 +2,6 @@ import { Wrap, WrapItem, Box, Button, Spacer, Flex, Text, Image, useColorMode, T
 import React, { useEffect, useState } from 'react'
 import { FaSearch, FaSortAmountDownAlt, FaSortAmountUpAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
-import imageDefault from '../../images/default.jpg';
 import axios from 'axios';
 import Unknown from '../utils/Unknown';
 
@@ -59,14 +58,14 @@ const Katalog = (props) => {
           <Box w='350px' borderWidth='1px' boxShadow='sm' borderRadius='15px' p={4}>
             <Tooltip label={product.name} hasArrow placement='top'>
               <Link to={`/${halaman}/${product.id}`}>
-                <Image src={product.photo === '' ? imageDefault : product.photo} borderRadius='15px' />
+                <Image src={'https://anada-storage.vercel.app/assets/souvenir/' + product.photo[0]} borderRadius='15px' />
               </Link>
             </Tooltip>
             <Flex marginTop="20px" align='center'>
               <Button onClick={() => window.open(product.buy)} bg='red.500' color='white'>Beli Sekarang!</Button>
               <Spacer />
               <Text fontSize='24px' color={isDark ? 'white' : 'gray.700'} fontWeight='bold'>
-                {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumSignificantDigits: 3 }).format(product.price)}</Text>
+                {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumSignificantDigits: 4 }).format(product.price)}</Text>
             </Flex>
           </Box>
         </ScaleFade>

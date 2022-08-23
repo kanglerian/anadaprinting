@@ -1,5 +1,5 @@
-import { Center, HStack, Image, Link, Text, VStack } from '@chakra-ui/react'
-import logo from '../images/logo.svg';
+import { Center, Divider, HStack, Image, Link, Text, VStack } from '@chakra-ui/react'
+import logo from '../images/logo.svg'
 import backgroundJPEG from '../images/background.jpg'
 import ShopeeLogo from '../images/logo/shopee.png'
 import TokopediaLogo from '../images/logo/tokopedia.png'
@@ -13,7 +13,7 @@ function Header() {
           <Image src={logo} dropShadow={1} />
         </Link>
         <Text fontWeight='light' fontSize='14px' color='white' textAlign='center'>Spesialis Undangan Pernikahan, Merchandise dan Souvenir dari Kota Tasikmalaya.</Text>
-        {/* <Divider/> */}
+        <Divider/>
         <Text fontWeight='light' fontSize='14px' color='white' dropShadow={1} textAlign='center'>Jl. Cibungkul RT.05 RW.13 Kel. Sukamajukaler Kec. Indihiang Kota Tasikmalaya Jawa Barat 46151</Text>
         <Link href='https://anadaprinting.vercel.app/'>
           <Text bg='#2D3748' color='#EDF2F7' padding='5px 15px 5px 15px' borderRadius='10px'>anadaprinting.vercel.app</Text>

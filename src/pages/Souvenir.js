@@ -2,6 +2,7 @@ import { Container, VStack } from '@chakra-ui/react';
 import React from 'react'
 import Katalog from '../components/products/Katalog';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Souvenir = () => {
     return (
@@ -9,6 +10,7 @@ const Souvenir = () => {
             <Container maxW="1200px">
                 <Header/>
                 <Katalog tipe='sv' hal='souvenir'/>
+                <Footer/>
             </Container>
         </VStack>
     )

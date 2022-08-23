@@ -1,14 +1,16 @@
-import { Stack, Text } from '@chakra-ui/react';
-import React from 'react'
+import React from "react";
+import Lottie from 'lottie-react'
+import WhatsappAnim from '../images/whatsapp.json'
+import { Link } from "@chakra-ui/react";
 
 const Footer = () => {
-
   return (
-    <Stack bg='gray.700' color='white' marginTop='50px' borderRadius='20px 20px 0px 0px' p={4}>
-        <Text textAlign='center' fontWeight='reguler' color='white' fontSize='13px'>www.namiraprinting.com</Text>
-        <Text fontWeight='light' fontSize='13px' color='white' textAlign='center'>Jl. Cibungkul RT.05 RW.13 Kel. Sukamajukaler Kec. Indihiang Kota Tasikmalaya Jawa Barat 46151</Text>
-    </Stack>
-  )
-}
+    <div style={{ position: 'fixed', bottom: '10px', right: '20px', width: '100px', height: '100px' }}>
+      <Link href='https://api.whatsapp.com/send?phone=6285315666799&text=Halo%20kak,%20saya%20mau%20pesan' isExternal>
+        <Lottie animationData={WhatsappAnim} loop={true} />
+      </Link>
+    </div>
+  );
+};
 
 export default Footer;

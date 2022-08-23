@@ -1,4 +1,4 @@
-import { Wrap, WrapItem, Box, Button, Spacer, Flex, Text, Image, useColorMode, Tooltip, InputGroup, InputLeftElement, Input, ButtonGroup, IconButton, Badge, useDisclosure, ScaleFade } from '@chakra-ui/react';
+import { Wrap, WrapItem, Box, Button, Spacer, Text, Tooltip, Image, useColorMode, InputGroup, InputLeftElement, Input, ButtonGroup, IconButton, Badge, useDisclosure, ScaleFade, useMediaQuery } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react'
 import { FaSearch, FaSortAmountDownAlt, FaSortAmountUpAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
@@ -8,6 +8,7 @@ import Unknown from '../utils/Unknown';
 const Katalog = (props) => {
 
   const [tipe] = useState(props.tipe);
+  const [isNotSmallerScreen] = useMediaQuery("(min-width: 600px)");
   const [halaman] = useState(props.hal);
   const { colorMode } = useColorMode();
   const isDark = colorMode === 'dark';
@@ -55,19 +56,19 @@ const Katalog = (props) => {
     return (
       <WrapItem key={index}>
         <ScaleFade initialScale={0.5} in={isOpen}>
-          <Box w='350px' borderWidth='1px' boxShadow='sm' borderRadius='15px' p={4}>
-            <Tooltip label={product.name} hasArrow placement='top'>
-              <Link to={`/${halaman}/${product.id}`}>
-                <Image src={'https://anada-storage.vercel.app/assets/souvenir/' + product.photo[0]} borderRadius='15px' />
-              </Link>
-            </Tooltip>
-            <Flex marginTop="20px" align='center'>
-              <Button onClick={() => window.open(product.buy)} bg='red.500' color='white'>Beli Sekarang!</Button>
-              <Spacer />
-              <Text fontSize='24px' color={isDark ? 'white' : 'gray.700'} fontWeight='bold'>
+        <Box w={isNotSmallerScreen ? '280px' : '185px'} borderWidth='1px' boxShadow='sm' borderRadius='15px'>
+          <Tooltip label={product.name} hasArrow placement='top'>
+          <Link to={`/${halaman}/${product.id}`}>
+            <Image src={'https://anada-storage.vercel.app/assets/souvenir/' + product.photo[0]} borderRadius='15px 15px 0px 0px' />
+          </Link>
+          </Tooltip>
+          <Box p={4} paddingBottom='15px'>
+            <Text textOverflow='ellipsis' overflow='hidden' whiteSpace='nowrap' fontSize='12px' color={isDark ? 'white' : 'gray.700'}>{product.name}</Text>
+            {console.log(product.name.length)}
+            <Text marginTop='5px' fontSize='16px' color={isDark ? 'white' : 'gray.700'} fontWeight='bold'>
                 {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumSignificantDigits: 4 }).format(product.price)}</Text>
-            </Flex>
           </Box>
+        </Box>
         </ScaleFade>
       </WrapItem>
     );
@@ -103,7 +104,7 @@ const Katalog = (props) => {
           </ButtonGroup>
         </WrapItem>
       </Wrap >
-      <Wrap justify='center' marginBottom='50px' spacing='30px' marginTop='20px'>
+      <Wrap justify='center' marginBottom='50px' spacing='10px' marginTop='20px'>
         {isStatus &&
           <Unknown />
         }

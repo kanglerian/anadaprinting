@@ -59,7 +59,7 @@ const Katalog = (props) => {
         <Box w={isNotSmallerScreen ? '280px' : '175px'} borderWidth='1px' boxShadow='sm' borderRadius='15px'>
           <Tooltip label={product.name} hasArrow placement='top'>
           <Link to={`/${halaman}/${product.id}`}>
-            <Image src={'https://anada-storage.vercel.app/assets/souvenir/' + product.photo[0]} borderRadius='15px 15px 0px 0px' />
+            <Image src={`https://anada-storage.vercel.app/assets/${tipe}/` + product.photo[0]} borderRadius='15px 15px 0px 0px' />
           </Link>
           </Tooltip>
           <Box p={4} paddingBottom='15px'>
@@ -95,7 +95,7 @@ const Katalog = (props) => {
               <Button size='sm'>Souvenir<Badge bg='red.500' color='white' marginLeft='5px'>baru</Badge></Button>
             </Link>
             <Link to='/undangan'>
-              <Button size='sm' disabled>Undangan</Button>
+              <Button size='sm'>Undangan<Badge bg='red.500' color='white' marginLeft='5px'>baru</Badge></Button>
             </Link>
             <Link to='/merchandise'>
               <Button size='sm' disabled>Merchandise</Button>

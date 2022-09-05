@@ -34,7 +34,7 @@ const DetailSouvenir = () => {
         <WrapItem>
           <ScaleFade initialScale={0.9} in={isOpen}>
             <Box w={isNotSmallerScreen ? '550px' : '360px'} borderWidth='1px' boxShadow='sm' borderRadius='15px' p={3}>
-              <Image src={cover === '' ? 'https://anada-storage.vercel.app/assets/souvenir/' + product.photo[0] : 'https://anada-storage.vercel.app/assets/souvenir/' + cover} borderRadius='15px' />
+              <Image src={cover === '' ? 'https://anada-storage.vercel.app/assets/sv/' + product.photo[0] : 'https://anada-storage.vercel.app/assets/sv/' + cover} borderRadius='15px' />
             </Box>
             <Box w={isNotSmallerScreen ? '550px' : '350px'}>
               <Wrap marginTop={2} justify='center'>
@@ -43,7 +43,7 @@ const DetailSouvenir = () => {
                     return (
                       <WrapItem key={index}>
                         <Box w={isNotSmallerScreen ? '120px' : '80px'} onClick={() => setCover(pho)} borderWidth='1px' boxShadow='sm' backgroundColor={pho === cover ? '#EDF2F7' : ''} borderRadius='15px' p={1}>
-                          <Image src={'https://anada-storage.vercel.app/assets/souvenir/' + pho} borderRadius='10px' />
+                          <Image src={'https://anada-storage.vercel.app/assets/sv/' + pho} borderRadius='10px' />
                         </Box>
                       </WrapItem>
                     );

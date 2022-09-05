@@ -34,24 +34,26 @@ const DetailUndangan = () => {
         <WrapItem>
           <ScaleFade initialScale={0.9} in={isOpen}>
             <Box w={isNotSmallerScreen ? '550px' : '360px'} borderWidth='1px' boxShadow='sm' borderRadius='15px' p={3}>
-              <Image src={cover === '' ? product.photo[0] : cover} borderRadius='15px' />
+              <Image src={cover === '' ? 'https://anada-storage.vercel.app/assets/wi/' + product.photo[0] : 'https://anada-storage.vercel.app/assets/wi/' + cover} borderRadius='15px' />
             </Box>
             <Box w={isNotSmallerScreen ? '550px' : '350px'}>
               <Wrap marginTop={2} justify='center'>
-                {product.photo.map((pho, index) => {
-                  return (
-                    <WrapItem key={index}>
-                      <Box w={isNotSmallerScreen ? '120px' : '80px'} onClick={() => setCover(pho)} borderWidth='1px' boxShadow='sm' backgroundColor={pho === cover ? '#EDF2F7' : ''} borderRadius='15px' p={1}>
-                        <Image src={pho} borderRadius='10px' />
-                      </Box>
-                    </WrapItem>
-                  );
-                })}
+                {product.photo.length > 1 &&
+                  product.photo.map((pho, index) => {
+                    return (
+                      <WrapItem key={index}>
+                        <Box w={isNotSmallerScreen ? '120px' : '80px'} onClick={() => setCover(pho)} borderWidth='1px' boxShadow='sm' backgroundColor={pho === cover ? '#EDF2F7' : ''} borderRadius='15px' p={1}>
+                          <Image src={'https://anada-storage.vercel.app/assets/wi/' + pho} borderRadius='10px' />
+                        </Box>
+                      </WrapItem>
+                    );
+                  })
+                }
               </Wrap>
             </Box>
           </ScaleFade>
         </WrapItem>
-        {isNotSmallerScreen ? '' : <Divider/>}
+        {isNotSmallerScreen ? '' : <Divider />}
         <WrapItem>
           <ScaleFade initialScale={0.9} in={isOpen}>
             <Box w={isNotSmallerScreen ? '500px' : '350px'} boxShadow='sm' borderRadius='15px' p={5}>
@@ -61,7 +63,7 @@ const DetailUndangan = () => {
               <Text marginTop='10px' fontSize='24px' fontWeight='bold'>{product.name}</Text>
               <Text marginTop='10px' style={{ color: '#4A5568' }}>{product.desc}</Text>
               <Text marginTop='10px' fontSize='24px' fontWeight='bold'>
-                {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumSignificantDigits: 3 }).format(product.price)}</Text>
+                {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumSignificantDigits: 4 }).format(product.price)}</Text>
               <Button marginTop='10px' onClick={() => window.open(product.buy)} bg='red.500' color='white'>Beli Sekarang!</Button>
             </Box>
           </ScaleFade>

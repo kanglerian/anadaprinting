@@ -33,7 +33,7 @@ const DetailUndangan = () => {
       <Wrap marginTop='50px' marginBottom='50px' justify='center' spacing='20px' key={index}>
         <WrapItem>
           <ScaleFade initialScale={0.9} in={isOpen}>
-            <Box w={isNotSmallerScreen ? '550px' : '360px'} borderWidth='1px' boxShadow='sm' borderRadius='15px' p={3}>
+            <Box w={isNotSmallerScreen ? '550px' : '360px'} borderWidth='1px' boxShadow='sm' borderRadius='15px' p={1}>
               <Image src={cover === '' ? 'https://anada-storage.vercel.app/assets/wi/' + product.photo[0] : 'https://anada-storage.vercel.app/assets/wi/' + cover} borderRadius='15px' />
             </Box>
             <Box w={isNotSmallerScreen ? '550px' : '350px'}>
@@ -42,8 +42,8 @@ const DetailUndangan = () => {
                   product.photo.map((pho, index) => {
                     return (
                       <WrapItem key={index}>
-                        <Box w={isNotSmallerScreen ? '120px' : '80px'} onClick={() => setCover(pho)} borderWidth='1px' boxShadow='sm' backgroundColor={pho === cover ? '#EDF2F7' : ''} borderRadius='15px' p={1}>
-                          <Image src={'https://anada-storage.vercel.app/assets/wi/' + pho} borderRadius='10px' />
+                        <Box w={isNotSmallerScreen ? '120px' : '80px'} onClick={() => setCover(pho)} borderWidth='1px' boxShadow='sm' backgroundColor={pho === cover ? '#EDF2F7' : ''} borderRadius='5px' padding='2px'>
+                          <Image src={'https://anada-storage.vercel.app/assets/wi/' + pho} borderRadius='5px' />
                         </Box>
                       </WrapItem>
                     );
@@ -56,7 +56,7 @@ const DetailUndangan = () => {
         {isNotSmallerScreen ? '' : <Divider />}
         <WrapItem>
           <ScaleFade initialScale={0.9} in={isOpen}>
-            <Box w={isNotSmallerScreen ? '500px' : '350px'} boxShadow='sm' borderRadius='15px' p={5}>
+            <Box w={isNotSmallerScreen ? '500px' : '350px'} boxShadow='sm' borderRadius='15px' p={1}>
               <Links to='/'>
                 <IconButton icon={<Ikon.FaChevronLeft />} />
               </Links>

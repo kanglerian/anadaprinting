@@ -1,4 +1,4 @@
-import { Wrap, WrapItem, Box, Button, Spacer, Text, Tooltip, Image, useColorMode, InputGroup, InputLeftElement, Input, ButtonGroup, IconButton, Badge, useDisclosure, ScaleFade, useMediaQuery } from '@chakra-ui/react';
+import { Wrap, WrapItem, Box, Button, Spacer, Text, Tooltip, Image, useColorMode, InputGroup, InputLeftElement, Input, ButtonGroup, IconButton, Badge, useDisclosure, ScaleFade, useMediaQuery, Flex } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react'
 import { FaSearch, FaSortAmountDownAlt, FaSortAmountUpAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom'
@@ -56,16 +56,19 @@ const Katalog = (props) => {
     return (
       <WrapItem key={index}>
         <ScaleFade initialScale={0.5} in={isOpen}>
-        <Box w={isNotSmallerScreen ? '280px' : '175px'} borderWidth='1px' boxShadow='sm' borderRadius='15px'>
+        <Box w={isNotSmallerScreen ? '280px' : '175px'} borderWidth='1px' boxShadow='sm' borderRadius='10px'>
           <Tooltip label={product.name} hasArrow placement='top'>
           <Link to={`/${halaman}/${product.id}`}>
-            <Image src={`https://anada-storage.vercel.app/assets/${tipe}/` + product.photo[0]} borderRadius='15px 15px 0px 0px' />
+            <Image src={`https://anada-storage.vercel.app/assets/${tipe}/` + product.photo[0]} borderRadius='10px 10px 0px 0px' />
           </Link>
           </Tooltip>
-          <Box p={4} paddingBottom='15px'>
+          <Box padding='10px'>
             <Text textOverflow='ellipsis' overflow='hidden' whiteSpace='nowrap' fontSize='12px' color={isDark ? 'white' : 'gray.700'}>{product.name}</Text>
-            <Text marginTop='5px' fontSize='16px' color={isDark ? 'white' : 'gray.700'} fontWeight='bold'>
+            <Flex justify='space-between' marginTop='4px'>
+            <Text fontSize='14px' color={isDark ? 'white' : 'gray.700'} fontWeight='bold'>
                 {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumSignificantDigits: 4 }).format(product.price)}</Text>
+            <Text fontSize='14px' color={isDark ? 'white' : 'gray.700'} fontWeight='bold'><Badge>Souvenir</Badge></Text>
+            </Flex>
           </Box>
         </Box>
         </ScaleFade>

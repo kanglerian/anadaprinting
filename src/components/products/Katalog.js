@@ -67,7 +67,7 @@ const Katalog = (props) => {
             <Flex justify='space-between' marginTop='4px'>
             <Text fontSize='14px' color={isDark ? 'white' : 'gray.700'} fontWeight='bold'>
                 {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumSignificantDigits: 4 }).format(product.price)}</Text>
-            <Text fontSize='14px' color={isDark ? 'white' : 'gray.700'} fontWeight='bold'><Badge>Souvenir</Badge></Text>
+            <Text fontSize='14px' color={isDark ? 'white' : 'gray.700'} fontWeight='bold'>{product.tipe != '' ? <Badge>{product.tipe}</Badge> : ''}</Text>
             </Flex>
           </Box>
         </Box>

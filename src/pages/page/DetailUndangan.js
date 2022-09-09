@@ -57,7 +57,7 @@ const DetailUndangan = () => {
         <WrapItem>
           <ScaleFade initialScale={0.9} in={isOpen}>
             <Box w={isNotSmallerScreen ? '500px' : '350px'} boxShadow='sm' borderRadius='15px' p={1}>
-              <Links to='/'>
+              <Links to='/undangan'>
                 <IconButton icon={<Ikon.FaChevronLeft />} />
               </Links>
               <Text marginTop='10px' fontSize='24px' fontWeight='bold'>{product.name}</Text>
